@@ -1,0 +1,103 @@
+---
+title: "African Logistics Performance Optimization"
+author: "Franck Djandja"
+output: html_document
+---
+
+# Project Overview
+
+This project analyzes logistics performance across several African countries to identify delivery delays, transportation inefficiencies, and opportunities for operational optimization.
+
+# Libraries
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+```
+
+# Load Dataset
+
+```{r}
+data <- read.csv("../data/logistics_dataset.csv")
+head(data)
+```
+
+# Data Preparation
+
+```{r}
+data$Delay_days <- data$Delivery_Time_days - data$Expected_Delivery_days
+data$Cost_per_km <- data$Shipping_Cost / data$Distance_km
+```
+
+# Shipments by Country
+
+```{r}
+data %>%
+  count(Country) %>%
+  ggplot(aes(x=reorder(Country,n), y=n)) +
+  geom_bar(stat="identity") +
+  coord_flip() +
+  labs(title="Total Shipments by Country",
+       x="Country",
+       y="Number of Shipments")
+```
+
+# Delivery Delay by Country
+
+```{r}
+data %>%
+  group_by(Country) %>%
+  summarise(avg_delay = mean(Delay_days)) %>%
+  ggplot(aes(x=reorder(Country,avg_delay), y=avg_delay)) +
+  geom_bar(stat="identity") +
+  coord_flip() +
+  labs(title="Average Delivery Delay by Country",
+       x="Country",
+       y="Average Delay (days)")
+```
+
+# Delivery Delay by Transport Mode
+
+```{r}
+data %>%
+  group_by(Transport_Mode) %>%
+  summarise(avg_delay = mean(Delay_days)) %>%
+  ggplot(aes(x=Transport_Mode, y=avg_delay)) +
+  geom_bar(stat="identity") +
+  labs(title="Delivery Delay by Transport Mode",
+       x="Transport Mode",
+       y="Average Delay (days)")
+```
+
+# Cost Efficiency
+
+```{r}
+ggplot(data, aes(x=Distance_km, y=Shipping_Cost)) +
+  geom_point(alpha=0.3) +
+  labs(title="Shipping Cost vs Distance",
+       x="Distance (km)",
+       y="Shipping Cost")
+```
+
+# Shipment Trend
+
+```{r}
+data$Order_Date <- as.Date(data$Order_Date)
+
+shipments_ts <- data %>%
+  count(Order_Date)
+
+ggplot(shipments_ts, aes(x=Order_Date, y=n)) +
+  geom_line() +
+  labs(title="Shipment Volume Over Time",
+       x="Date",
+       y="Number of Shipments")
+```
+
+# Key Insights
+
+- Road transport accounts for the majority of shipments.
+- Certain countries experience higher delivery delays.
+- Shipping costs increase with distance but reveal operational inefficiencies.
+- Shipment demand shows a gradual increase over time.
