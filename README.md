@@ -50,9 +50,7 @@ Each record represents a shipment transaction including operational and financia
 - Order Value
 - Order Date
 
-Dataset location in repository:
-
-data/logistics_dataset.csv
+Dataset location in repository: [data/logistics_dataset.csv](data/logistics_dataset.csv)
 
 ---
 
@@ -71,9 +69,7 @@ Key steps:
 - Feature transformation
 - Data formatting for visualization
 
-Notebook location:
-
-notebooks/african_logistics_analysis.Rmd
+Notebook location: [notebooks/African_Logistics_Analysis.Rmd](notebooks/African_Logistics_Analysis.Rmd)
 
 
 ---
@@ -95,9 +91,7 @@ These analyses help uncover operational inefficiencies and performance variabili
 
 A strategic dashboard was developed in Tableau to visualize logistics performance indicators.
 
-Dashboard file location:
-
-dashboards/logistics_dashboard.twbx
+Dashboard file location: [dashboard/logistics_dashboard.twbx](dashboard/logistics_dashboard.twbx)
 
 
 The dashboard provides a visual overview of:
@@ -180,9 +174,9 @@ data/
 logistics_dataset.csv
 
 notebooks/
-african_logistics_analysis.Rmd
+African_Logistics_Analysis.Rmd
 
-dashboards/
+dashboard/
 logistics_dashboard.twbx
 
 images/
