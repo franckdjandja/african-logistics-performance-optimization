@@ -110,6 +110,32 @@ The dashboard provides a visual overview of:
 
 ---
 
+# Analysis Charts
+
+The following charts were produced in R during the exploratory analysis. The full rendered report is available in [notebooks/African_Logistics_Analysis.html](notebooks/African_Logistics_Analysis.html).
+
+### Total Shipments by Country
+
+![Total Shipments by Country](images/shipments_by_country.png)
+
+### Average Delivery Delay by Country
+
+![Average Delivery Delay by Country](images/delivery_delay_by_country.png)
+
+### Delivery Delay by Transport Mode
+
+![Delivery Delay by Transport Mode](images/delivery_delay_by_transport_mode.png)
+
+### Shipping Cost vs Distance
+
+![Shipping Cost vs Distance](images/cost_efficiency.png)
+
+### Shipment Volume Over Time
+
+![Shipment Volume Over Time](images/shipment_trend.png)
+
+---
+
 # Key Insights
 
 ## Delivery Delay Patterns
@@ -175,12 +201,19 @@ logistics_dataset.csv
 
 notebooks/
 African_Logistics_Analysis.Rmd
+African_Logistics_Analysis.html
 
 dashboard/
 logistics_dashboard.twbx
 
 images/
 african_logistics_dashboard.png
+shipments_by_country.png
+delivery_delay_by_country.png
+delivery_delay_by_transport_mode.png
+cost_efficiency.png
+shipment_trend.png
+social_preview.png
 
 ---
 
