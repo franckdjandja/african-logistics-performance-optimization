@@ -213,7 +213,6 @@ delivery_delay_by_country.png
 delivery_delay_by_transport_mode.png
 cost_efficiency.png
 shipment_trend.png
-social_preview.png
 
 ---
 
